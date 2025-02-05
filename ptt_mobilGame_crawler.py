@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import json
+#import json
+import pandas as pd
 url="https://www.ptt.cc/bbs/Mobile-game/index.html"
 headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"}
 response=requests.get(url,headers=headers)
@@ -31,10 +32,13 @@ for a in articles:
         date="N/A"
     data["日期"] = date
     data_list.append(data)
+df=pd.DataFrame(data_list)
+df.to_excel("ptt_mobilGame.xlsx",index=False,engine="openpyxl")
 #print(data_list)
-with open("ptt_mobilGame_data.json","w",encoding="utf-8")as file:
-    json.dump(data_list,file,ensure_ascii=False,indent=4)
-print("資料已經成功儲存為json")
+
+# with open("ptt_mobilGame_data.json","w",encoding="utf-8")as file:
+#     json.dump(data_list,file,ensure_ascii=False,indent=4)
+# print("資料已經成功儲存為json")
 
 #print(response.text)
 # if response.status_code==200:
