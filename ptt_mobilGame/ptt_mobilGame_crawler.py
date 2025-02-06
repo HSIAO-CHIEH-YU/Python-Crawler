@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+# 需要 BeautifulSoup：當你在爬取的網頁是 HTML 格式，並且需要提取或解析 HTML 內容時。
+# 不需要 BeautifulSoup：當你處理的是 API 返回的 JSON 資料或其他非 HTML 格式的資料。
 #import json
 import pandas as pd
 url="https://www.ptt.cc/bbs/Mobile-game/index.html"
