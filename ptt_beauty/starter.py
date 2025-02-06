@@ -4,8 +4,9 @@ import  os
 
 def download_img(url,save_path):#下載圖片
     print(f"正在下載圖片:{url}")
+    #模仿使用者
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36"}
-    response=requests.get(url,headers=headers)#用requests來取得url的內容
+    response=requests.get(url,headers=headers)#假裝使用者然後用requests來取得url的內容
     with open(save_path,"wb")as file:#wb寫入二進位 因為是圖片
         file.write(response.content)
     print("-"*30)
